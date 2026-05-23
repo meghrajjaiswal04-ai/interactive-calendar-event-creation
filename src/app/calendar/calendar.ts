@@ -1,21 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EventService } from '../services/event';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule
+} from '@angular/forms';
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './calendar.html',
-  styleUrls: ['./calendar.css']
+  styleUrl: './calendar.css'
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
+
+  showForm = false;
 
   events: any[] = [];
 
-  constructor(private eventService: EventService) {}
+  eventForm!: FormGroup;
 
-  ngOnInit(): void {
-    this.events = this.eventService.getEvents();
+  constructor(private fb: FormBuilder) {
+
+    this.eventForm = this.fb.group({
+      title: ['', Validators.required],
+      date: ['', Validators.required]
+    });
+
+  }
+
+  addEvent() {
+
+    if (this.eventForm.valid) {
+
+      this.events.push(this.eventForm.value);
+
+      this.eventForm.reset();
+
+      this.showForm = false;
+
+    } else {
+
+      this.eventForm.markAllAsTouched();
+
+    }
   }
 }

@@ -1,0 +1,71 @@
+<h2>Event List</h2>
+
+<table border="1" cellpadding="10">
+
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let event of events">
+
+    <td>{{ event.name }}</td>
+    <td>{{ event.date }}</td>
+    <td>{{ event.location }}</td>
+
+    <td>
+
+      <button (click)="editEvent(event)">
+        Edit
+      </button>
+
+      <button (click)="deleteEvent(event.id)">
+        Delete
+      </button>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<hr>
+
+<div *ngIf="selectedEvent">
+
+  <h3>Edit Event</h3>
+
+  <label>Event Name:</label>
+
+  <input
+    type="text"
+    [(ngModel)]="selectedEvent.name"
+  >
+
+  <br><br>
+
+  <label>Date:</label>
+
+  <input
+    type="date"
+    [(ngModel)]="selectedEvent.date"
+  >
+
+  <br><br>
+
+  <label>Location:</label>
+
+  <input
+    type="text"
+    [(ngModel)]="selectedEvent.location"
+  >
+
+  <br><br>
+
+  <button (click)="updateEvent()">
+    Save Changes
+  </button>
+
+</div>

@@ -1,29 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  private apiUrl = 'http://localhost:3000/events';
+  private events = [
+    {
+      id: 1,
+      title: 'Meeting',
+      date: '2026-05-24'
+    },
+    {
+      id: 2,
+      title: 'Conference',
+      date: '2026-05-25'
+    }
+  ];
 
-  constructor(private http: HttpClient) {}
+  constructor() { }
 
-  getEvents(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getEvents(): Observable<any[]> {
+    return of(this.events);
   }
 
   addEvent(event: any): Observable<any> {
-    return this.http.post(this.apiUrl, event);
-  }
-
-  updateEvent(id: number, event: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, event);
+    this.events.push(event);
+    return of(event);
   }
 
   deleteEvent(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    this.events = this.events.filter(event => event.id !== id);
+    return of(true);
   }
 }

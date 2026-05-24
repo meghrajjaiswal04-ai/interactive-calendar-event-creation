@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "interactive-calendar-event-editing",
+			"path": "../../../../interactive-calendar-event-editing"
+		}
+	],
+	"settings": {}
+}

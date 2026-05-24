@@ -1,1 +1,17 @@
-<app-event></app-event>
+<h1>Event Calendar</h1>
+
+<button (click)="addEvent()">
+  Add Event
+</button>
+
+<ul>
+  <li *ngFor="let event of events">
+
+    {{ event.title }} - {{ event.date }}
+
+    <button (click)="deleteEvent(event.id)">
+      Delete
+    </button>
+
+  </li>
+</ul>

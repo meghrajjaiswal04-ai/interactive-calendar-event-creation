@@ -1,0 +1,55 @@
+{
+  "events": [
+    {
+      "id": "2",
+      "title": "Workshop",
+      "date": "2025-05-25"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "EBp-QNN6LOE"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "CFfZfXu9XrQ"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "jlxh-dKbrR8"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "UaqGsCrsr0I"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "8HBCVnnPmwE"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "rNmxHJGGVzo"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "Qgokn0wufAQ"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "z13Aay1bjvc"
+    },
+    {
+      "title": "New Event",
+      "date": "2025-06-01",
+      "id": "_22QIUpr8Us"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
